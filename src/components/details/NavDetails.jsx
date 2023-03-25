@@ -1,31 +1,31 @@
 import React from 'react'
 import styled from 'styled-components';
-import SelectRoom from './SelectRoom';
+import SelectRoom from './detailPages/SelectRoom';
+import Traffic from './detailPages/Traffic';
+import Policy from './detailPages/Policy';
+import Services from './detailPages/Services';
+import Comment from './detailPages/Comment';
 
 function NavDetails({ select }) {
 
-    console.log(select);
-
-    const switchContents = () => {
-        switch(select) {
-            case "1":
-                return <SelectRoom />;
-            case "2":
-                return <></>;
-            case "3":
-                return <></>;
-            case "4":
-                return <></>;
-            case "5":
-                return <></>;
-            default:
-                return null;
-        }
-    }
-
     return (
         <DetailContainer>
-            {switchContents}
+            {(() => {
+                switch(select) {
+                    case "1":
+                        return <SelectRoom/>;
+                    case "2":
+                        return <Traffic />;
+                    case "3":
+                        return <Policy />;
+                    case "4":
+                        return <Services />;
+                    case "5":
+                        return <Comment />;
+                    default:
+                        return null;
+                }
+            })()}
         </DetailContainer>
     )
 }
