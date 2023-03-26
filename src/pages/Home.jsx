@@ -16,7 +16,6 @@ function Home() {
       <Test />
       <CategorysFive />
       <SingupEventBanner />
-
     </>
   )
 }
