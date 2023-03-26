@@ -14,9 +14,6 @@ function SelectRoom({hotel}) {
     child : 0,
   });
 
-  const Methods = {
-  }
-
   return (
     <SelectRoomContainer>
       <SearchBar />

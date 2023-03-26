@@ -65,9 +65,10 @@ const NavButton = styled.button`
 `
 const ButtonContainer = styled.nav`
     width: 100%;
-    margin-left: 2px;
     margin-bottom: 1px;
     padding : 0px 15px;
+    background-color: white;
+    box-sizing: border-box;
 `
 const Li = styled.li`
     display: inline-block;

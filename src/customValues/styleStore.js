@@ -5,6 +5,7 @@ export const HFlex = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-sizing: border-box;
     width : ${({width})=>width? width : '100%'};
     height : ${({height})=>height? height : '100%'};
     gap : ${({gap}) => gap ? gap : null};

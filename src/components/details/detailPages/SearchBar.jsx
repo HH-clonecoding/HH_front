@@ -36,6 +36,8 @@ const SearchBarContainer = styled.div`
     width: 100%;
     padding : 15px;
     box-sizing: border-box;
+    margin-bottom: 1px;
+    background-color: white;
 `
 
 const ButtonGroup = styled.div`

@@ -4,7 +4,7 @@ import SelectRoom from './detailPages/SelectRoom';
 import Traffic from './detailPages/Traffic';
 import Policy from './detailPages/Policy';
 import Services from './detailPages/Services';
-import Comment from './detailPages/Comment';
+import Comments from './detailPages/Comments';
 
 function NavDetails({ select }) {
 
@@ -21,7 +21,7 @@ function NavDetails({ select }) {
                     case "4":
                         return <Services />;
                     case "5":
-                        return <Comment />;
+                        return <Comments />;
                     default:
                         return null;
                 }

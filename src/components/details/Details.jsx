@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { CONTENTS_BACKGROUND_COLOR, MAX_WIDTH } from '../../customValues/pubVariables';
+import { CONTENTS_BACKGROUND_COLOR, MAX_WIDTH, PAGE_BACKGROUND_COLOR } from '../../customValues/pubVariables';
 import { VFlex } from '../../customValues/styleStore';
 import MainNav from './MainNav';
 import NavDetails from './NavDetails';
 
 function Details() {
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = useState('1');
     return (
         <Main>
             <VFlex>
@@ -22,6 +22,5 @@ export default Details;
 const Main = styled.main`
     width: ${MAX_WIDTH};
     height : fit-content;
-    background-color: white;
-    /* background-color: ${CONTENTS_BACKGROUND_COLOR}; */
+    margin-bottom: 48px;
 `;
