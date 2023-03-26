@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import { TEXT_COLOR } from '../../customValues/pubVariables';
 
 function MainNav({select}) {
 
@@ -62,6 +63,8 @@ const NavButton = styled.button`
     margin : 0;
     background-color: transparent;
     border-bottom: ${({ focused, name }) => focused === name ? `2px solid blue` : null};
+    font-weight : ${({ focused, name }) => focused === name ? `bold` : 400};
+    color : ${({ focused, name }) => focused === name ? `blue` : {TEXT_COLOR}};
 `
 const ButtonContainer = styled.nav`
     width: 100%;
