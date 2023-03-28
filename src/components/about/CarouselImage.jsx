@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 import { IMAGE_HEIGHT, MAX_WIDTH } from '../../customValues/pubVariables';
 
-function CarouselImage({ children }) {
+function CarouselImage({ imageSize,children }) {
     return (
-        <ImageBox>
-            <Image src={children}></Image>
+        <ImageBox imageSize={imageSize}>
+            <Image imageSize={imageSize} src={children}></Image>
         </ImageBox>
     )
 }
@@ -15,11 +15,11 @@ export default CarouselImage;
 const ImageBox = styled.div`
     margin : 0px;
     padding: 0px;
-    width: 100%;
-    height : 100%;
+    width: ${({imageSize}) => imageSize ? '353px' : MAX_WIDTH};;
+    height : ${({imageSize}) => imageSize ? '100%' : IMAGE_HEIGHT};;
 `
 const Image = styled.img`
-    width: ${MAX_WIDTH};
-    height: ${IMAGE_HEIGHT};
-    object-fit: cover;
+    width: ${({imageSize}) => imageSize ? '100%' : MAX_WIDTH};
+    height: ${({imageSize}) => imageSize ? '100%' : IMAGE_HEIGHT};
+    object-fit: fill;
 `

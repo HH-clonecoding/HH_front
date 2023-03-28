@@ -38,10 +38,10 @@ const PrevBtn = styled.button`
   position: absolute;
   cursor: pointer;
   top : 50%;
-  left : 1rem;
+  left : 2%;
   transform: translateY(-50%);
-  width: 3.5rem;
-  height: 5rem;
+  width: 8%;
+  height: 16%;
   border : none;
   border-radius: 5px;
   background-color: transparent;
@@ -51,10 +51,10 @@ const NextBtn = styled.button`
   position: absolute;
   cursor: pointer;
   top : 50%;
-  right : 1rem;
+  right : 2%;
   transform: translateY(-50%);
-  width: 3.5rem;
-  height: 5rem;
+  width: 8%;
+  height: 16%;
   border : none;
   border-radius: 5px;
   background-color: transparent;

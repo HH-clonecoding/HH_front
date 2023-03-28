@@ -3,20 +3,21 @@ import uuid from 'react-uuid'
 import { HFlex } from '../../customValues/styleStore'
 import CarouselImage from './CarouselImage'
 
-const CarouselModule = ({ images, viewedShot }) => {
+const CarouselModule = ({ images, current, imageSize }) => {
 
 
     const styleOption = `
-        width:100%;
-        overflow:hidden; 
+        width:fit-content; 
+        height:100%;
         flex-wrap:nowrap;
-        transition : all 1s;
-        transform: translateX(-${(viewedShot-1)*100}%);
-    `
+        transition : all 0.5s;
+        flex : none;
+        transform: translateX(-${(current-1)*(imageSize? 353:768)}px);
+    `;
 
     return (
         <HFlex etc={styleOption}>
-            {images.map((element) => <CarouselImage key={uuid()}>{element}</CarouselImage>)}
+            {images.map((element) => <CarouselImage imageSize={imageSize} key={uuid()}>{element}</CarouselImage>)}
         </HFlex>
     )
 }

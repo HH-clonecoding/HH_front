@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { CONTENTS_BACKGROUND_COLOR } from '../../../customValues/pubVariables';
 import { HFlex, HFlexSpaceBetween, VFlex } from '../../../customValues/styleStore';
+import CarouselModule from '../../about/CarouselModule';
+import SlideButtonSet from '../../about/SlideButtonSet';
 
-function ProductBox({element}) {
-    // console.log(element);
+function ProductBox({ element }) {
+    const [count, setCount] = useState(1);
+
     return (
         <ProductBoxContainer>
             <VFlex width='100%' etc='padding:15px;' gap='12px'>
                 <CarouselCase>
-                    <Image src="https://yaimg.yanolja.com/v5/2022/08/23/20/640/63053711207211.69050377.jpg" />
+                    <SlideButtonSet count={count} setFunc={setCount} total={element.pictures.length} />
+                    <CarouselModule images={element.pictures} viewedShot={count} imageSize={true}/>
                 </CarouselCase>
                 <VFlex gap='5px'>
                     <TitleSpace>{element.roomname}</TitleSpace>
                     <SubTitleSpace>{element.option[0]}</SubTitleSpace>
                     <RoomInfo>
-                        <span>기준 최소 {element.minPeople}인 / 최대 {element.maxPeople}인 · {element.smoking? '흡연객실' : '금연객실'}</span>
+                        <span>기준 최소 {element.minPeople}인 / 최대 {element.maxPeople}인 · {element.smoking ? '흡연객실' : '금연객실'}</span>
                     </RoomInfo>
                     <HFlexSpaceBetween etc='font-size:14px; padding: 15px 0px;'>
                         <div>
@@ -24,7 +28,7 @@ function ProductBox({element}) {
                         <Price>125,000원~</Price>
                     </HFlexSpaceBetween>
                     <HFlex height='20px;' etc='justify-content:right'>
-                        {Math.floor(Math.random()*10) % 2 == 1
+                        {Math.floor(Math.random() * 10) % 2 == 1
                             ? <SelectButton>객실 선택하기</SelectButton>
                             : <RoomInfoButton>객실 상세보기</RoomInfoButton>
                         }
@@ -93,8 +97,9 @@ const SubTitleSpace = styled.div`
     color : gray;
 `
 const CarouselCase = styled.div`
+    position: relative;
     width : 100%;
-    height: 100%;
+    height: 220px;
     box-sizing: border-box;
     border-radius: 10px;
     overflow: hidden;

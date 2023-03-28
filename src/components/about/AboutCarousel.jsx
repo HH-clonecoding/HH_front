@@ -12,7 +12,7 @@ function AboutCarousel({images}) {
     return (
         <CarouselBody>
             <SlideButtonSet count={count} setFunc={setCount} total={images.length}/>
-            <CarouselModule images={images} viewedShot={count}/>
+            <CarouselModule images={images} viewedShot={count} imageSize={false}/>
             <PictureInform count={count} total={images.length}/>
         </CarouselBody>
     );

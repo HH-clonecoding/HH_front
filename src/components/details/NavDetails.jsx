@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import SelectRoom from './detailPages/SelectRoom';
 import Traffic from './detailPages/Traffic';
-import Policy from './detailPages/Policy';
-import Services from './detailPages/Services';
 import Comments from './detailPages/Comments';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 
 function NavDetails({ select }) {
 
@@ -18,10 +14,6 @@ function NavDetails({ select }) {
                         return <SelectRoom/>;
                     case "2":
                         return <Traffic />;
-                    case "3":
-                        return <Policy />;
-                    case "4":
-                        return <Services />;
                     case "5":
                         return <Comments />;
                     default:

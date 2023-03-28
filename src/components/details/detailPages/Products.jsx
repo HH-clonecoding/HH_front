@@ -12,7 +12,7 @@ function Products() {
 
     const params = useParams();
 
-    const {data, isError, isLoading} = useQuery({
+    const {data} = useQuery({
         queryKey : ["selectRoom"],
         queryFn : async () => {
             const response = await apis.get(`/api/place/rooms/${params.id}`);
@@ -20,13 +20,11 @@ function Products() {
         },
     });
 
-    if(!data || isLoading) return <div>로딩중...</div>;
-    if(isError) return console.log("에러");
 
     return (
         <ProductsContainer>
             <HFlex gap='1px' etc='flex-wrap:wrap;'>
-                {data.roomdetail.map((element) => <ProductBox element={element} key={uuid()} />)}
+                {data?.roomdetail.map((element) => <ProductBox element={element} key={uuid()} />)}
             </HFlex>
         </ProductsContainer>
     );
