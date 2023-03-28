@@ -13,7 +13,7 @@ function ProductBox({ element }) {
             <VFlex width='100%' etc='padding:15px;' gap='12px'>
                 <CarouselCase>
                     <SlideButtonSet count={count} setFunc={setCount} total={element.pictures.length} />
-                    <CarouselModule images={element.pictures} viewedShot={count} imageSize={true}/>
+                    <CarouselModule images={element.pictures} current={count} imageSize={true}/>
                 </CarouselCase>
                 <VFlex gap='5px'>
                     <TitleSpace>{element.roomname}</TitleSpace>

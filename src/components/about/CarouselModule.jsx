@@ -5,7 +5,6 @@ import CarouselImage from './CarouselImage'
 
 const CarouselModule = ({ images, current, imageSize }) => {
 
-
     const styleOption = `
         width:fit-content; 
         height:100%;

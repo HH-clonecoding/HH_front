@@ -29,7 +29,7 @@ function SlideButtonSet({ count, setFunc, total }) {
         <BtnImage src={publicPath + "/img/right.png"} />
       </NextBtn>
     </>
-  )
+  );
 }
 
 export default SlideButtonSet;

@@ -16,6 +16,13 @@ export const apis_token = axios.create({
     },
 });
 
+export const apis_naver = axios.create({
+    baseURL : process.env.REACT_APP_NAVER,
+    headers: {
+        "X-NCP-APIGW-API-KEY-ID" : "ldgh7n9ai",
+        "X-NCP-APIGW-API-KEY" : "V5WYpLSigsEa4JhMdwDbn19fvU23wpPHsqEa6jhD",
+    }
+})
 
 apis_token.interceptors.request.use((config) => {
     if (config.headers === undefined) return;

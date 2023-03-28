@@ -4,15 +4,6 @@ import Products from './Products';
 import SearchBar from './SearchBar';
 
 function SelectRoom({hotel}) {
-  const [period, setPeriod] = useState({
-    startDay : '',
-    endDaty : '',
-  });
-
-  const [member, setMember] = useState({
-    adult : 0,
-    child : 0,
-  });
 
   return (
     <SelectRoomContainer>
