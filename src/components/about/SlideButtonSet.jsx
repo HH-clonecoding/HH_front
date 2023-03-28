@@ -1,14 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
+import { publicPath } from '../../customValues/pubVariables';
 
-function SlideButtonSet() {
+function SlideButtonSet({ count, setFunc, total }) {
+
+  const buttonClickHandler = (position) => {
+    if (position === "prev") {
+      setFunc((prev) => --prev);
+    } else if (position === "next"){
+      setFunc((prev) => ++prev);
+    } else {
+      console.log("슬라이드 버튼를 확인하세요");
+    }
+  }
+
   return (
     <>
-      <PrevBtn>
-        <BtnImage src="img/left.png" />
+      <PrevBtn
+        onClick={() => buttonClickHandler("prev")}
+        disabled={count === 1 ? true : false}
+      >
+        <BtnImage src={publicPath + "/img/left.png"} />
       </PrevBtn>
-      <NextBtn>
-        <BtnImage src="img/right.png" />
+      <NextBtn
+        onClick={() => buttonClickHandler("next")}
+        disabled={count === total ? true : false}
+      >
+        <BtnImage src={publicPath + "/img/right.png"} />
       </NextBtn>
     </>
   )
@@ -27,6 +45,7 @@ const PrevBtn = styled.button`
   border : none;
   border-radius: 5px;
   background-color: transparent;
+  z-index: 5;
 `;
 const NextBtn = styled.button`
   position: absolute;
@@ -39,6 +58,7 @@ const NextBtn = styled.button`
   border : none;
   border-radius: 5px;
   background-color: transparent;
+  z-index: 5;
 `;
 const BtnImage = styled.img`
   width: 100%;

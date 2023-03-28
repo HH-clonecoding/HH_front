@@ -5,21 +5,24 @@ import BuildingLocation from './BuildingLocation';
 import StarRating from './StarRating';
 import { HFlex, HFlexSpaceBetween, VFlex } from '../../customValues/styleStore';
 
-function BasicInform() {
+function BasicInform({data}) {
+    if(!data) return <div>로딩중</div>;
+
+    
     return (
         <CompContainer>
             <ClassifyText>일반 호텔</ClassifyText>
             <VFlex etc='gap:15px;'>
                 <NameSpace>
                     <HFlexSpaceBetween>
-                        <Name>호텔 소설</Name>
+                        <Name>{data.name}</Name>
                         <HFlex width='fit-content'>
-                            <ButtonIcons><img src="img/share.png" /></ButtonIcons>
-                            <ButtonIcons><img src="img/heart.png" /></ButtonIcons>
+                            <ButtonIcons><img src={process.env.PUBLIC_URL+'/img/share.png'} /></ButtonIcons>
+                            <ButtonIcons><img src={process.env.PUBLIC_URL+'/img/heart.png'} /></ButtonIcons>
                         </HFlex>
                     </HFlexSpaceBetween>
                 </NameSpace>
-                <StarRating starRate={4.3} voteCount={59}/>
+                <StarRating starRate={data.star} voteCount={data.commentCount}/>
                 <BuildingLocation />
                 <Line />
             </VFlex>

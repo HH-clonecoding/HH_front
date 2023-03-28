@@ -5,6 +5,8 @@ import Traffic from './detailPages/Traffic';
 import Policy from './detailPages/Policy';
 import Services from './detailPages/Services';
 import Comments from './detailPages/Comments';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 function NavDetails({ select }) {
 

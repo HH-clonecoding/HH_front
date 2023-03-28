@@ -1,24 +1,39 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react'
+import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { PAGE_BACKGROUND_COLOR } from '../../../customValues/pubVariables';
 import { HFlex } from '../../../customValues/styleStore';
 import ProductBox from './ProductBox';
+import {apis} from '../../../axios/apis'
+import { useParams } from 'react-router-dom';
 
 function Products() {
 
-    const sampleArray = [1, 2, 3, 4, 5, 6, 7];
+    const params = useParams();
+
+    const {data, isError, isLoading} = useQuery({
+        queryKey : ["selectRoom"],
+        queryFn : async () => {
+            const response = await apis.get(`/api/place/rooms/${params.id}`);
+            return response.data;
+        },
+    });
+
+    if(!data || isLoading) return <div>로딩중...</div>;
+    if(isError) return console.log("에러");
 
     return (
         <ProductsContainer>
             <HFlex gap='1px' etc='flex-wrap:wrap;'>
-                {sampleArray.map((element) => <ProductBox element={element} />)}
+                {data.roomdetail.map((element) => <ProductBox element={element} key={uuid()} />)}
             </HFlex>
         </ProductsContainer>
-    )
+    );
+
 }
 
 export default Products;
-
 
 const ProductsContainer = styled.div`
     width: 100%;

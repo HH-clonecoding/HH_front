@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { PAGE_BACKGROUND_COLOR, TEXT_COLOR } from '../customValues/pubVariables';
 import AboutHotel from '../components/about/AboutHotel';
@@ -6,6 +6,9 @@ import { VFlexCenter } from '../customValues/styleStore';
 import Details from '../components/details/Details';
 import DetailHeader from '../components/DetailHeader';
 import DetailFooter from '../components/DetailFooter';
+import { useParams } from 'react-router';
+import { QueryCache, QueryClient, useQuery } from '@tanstack/react-query';
+import { apis } from '../axios/apis'
 
 function ProductDetail() {
 
@@ -14,7 +17,7 @@ function ProductDetail() {
       <DetailHeader />
       <BodyContainer>
         <VFlexCenter>
-          <AboutHotel />
+          <AboutHotel/>
           <Details />
         </VFlexCenter>
       </BodyContainer>

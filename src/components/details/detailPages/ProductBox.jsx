@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import { CONTENTS_BACKGROUND_COLOR, PAGE_BACKGROUND_COLOR } from '../../../customValues/pubVariables';
+import { CONTENTS_BACKGROUND_COLOR } from '../../../customValues/pubVariables';
 import { HFlex, HFlexSpaceBetween, VFlex } from '../../../customValues/styleStore';
 
 function ProductBox({element}) {
+    // console.log(element);
     return (
         <ProductBoxContainer>
             <VFlex width='100%' etc='padding:15px;' gap='12px'>
@@ -11,10 +12,10 @@ function ProductBox({element}) {
                     <Image src="https://yaimg.yanolja.com/v5/2022/08/23/20/640/63053711207211.69050377.jpg" />
                 </CarouselCase>
                 <VFlex gap='5px'>
-                    <TitleSpace>스탠다드 더블</TitleSpace>
-                    <SubTitleSpace>Room Only</SubTitleSpace>
+                    <TitleSpace>{element.roomname}</TitleSpace>
+                    <SubTitleSpace>{element.option[0]}</SubTitleSpace>
                     <RoomInfo>
-                        <span>기준 2인 / 최대 2인 · 금연객실</span>
+                        <span>기준 최소 {element.minPeople}인 / 최대 {element.maxPeople}인 · {element.smoking? '흡연객실' : '금연객실'}</span>
                     </RoomInfo>
                     <HFlexSpaceBetween etc='font-size:14px; padding: 15px 0px;'>
                         <div>
@@ -23,7 +24,7 @@ function ProductBox({element}) {
                         <Price>125,000원~</Price>
                     </HFlexSpaceBetween>
                     <HFlex height='20px;' etc='justify-content:right'>
-                        {element % 2 == 1
+                        {Math.floor(Math.random()*10) % 2 == 1
                             ? <SelectButton>객실 선택하기</SelectButton>
                             : <RoomInfoButton>객실 상세보기</RoomInfoButton>
                         }

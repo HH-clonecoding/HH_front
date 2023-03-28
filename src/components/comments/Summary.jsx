@@ -1,8 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import styled from 'styled-components';
 import { HFlex, HFlexSpaceBetween, VFlex } from '../../customValues/styleStore';
 
 const Summary = () => {
+
+    const data = useQuery(['getDetails']).data;
+
     return (
         <SummaryContainer>
             <VFlex gap='15px'>
@@ -19,7 +23,7 @@ const Summary = () => {
                             <HFlex height='52px'>
                                 <StarImg src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1IDBsLTQuOTQ0IDkuNDI4TDAgMTEuNDU5bDcuMDAxIDcuODU4TDUuNzI5IDMwbDkuMjcyLTQuNTczTDI0LjI3IDMwIDIzIDE5LjMxN2w3LTcuODU3LTEwLjA1Ni0yLjAzMnoiIGZpbGw9IiNGREJEMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" />
                                 <span>
-                                    <EstimatedRate>4.4</EstimatedRate>
+                                    <EstimatedRate>{data.star.toFixed(1)}</EstimatedRate>
                                     <TotalRate>/5</TotalRate>
                                 </span>
                             </HFlex>
