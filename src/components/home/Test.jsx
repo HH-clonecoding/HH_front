@@ -1,9 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
-import "../slick.css";
-import "../slick-theme.css";
-import banners from "../source/banners";
+import "../../slick.css";
+import "../../slick-theme.css";
+import banners from "../../source/banners";
 import styled from "styled-components";
+import { useState } from "react";
 
 function CenterMode() {
     const settings = {
@@ -13,10 +14,11 @@ function CenterMode() {
         centerPadding: "50px",
         slidesToShow: 2,
         speed: 500,
-        dots: false,
         autoplay: true,
         autoplaySpeed: 3000,
       };
+
+    
 
     return (
       <MainCont>
@@ -26,6 +28,7 @@ function CenterMode() {
                 ) 
             }
         </Slider>
+        <span>{'<'} {banners.index}/{banners.length} {'>'}</span>
     </MainCont>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import banners from '../source/banners';
+import banners from '../../source/banners';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

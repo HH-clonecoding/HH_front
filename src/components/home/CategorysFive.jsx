@@ -6,23 +6,23 @@ function CategorysFive() {
     <MainCont>
       <Wrapper padding='0.3rem 2.5rem 1.5rem 2.5rem' rep='repeat(5, 1fr)'>
         <Category>
-          <Img sizes='38px' src="/imgs/icons/4.underBannerIcon/1.png" alt="" />
+          <Img sizes='38px' src="/img/home/underBannerIcon/1.png" alt="" />
           <Span sizes='0.7rem'>킹특가야놀자</Span>
         </Category>
         <Category>
-          <Img sizes='38px' src="/imgs/icons/4.underBannerIcon/2.png" alt="" />
+          <Img sizes='38px' src="/img/home/underBannerIcon/2.png" alt="" />
           <Span sizes='0.7rem'>초특가놀먹보</Span>
         </Category>
         <Category>
-          <Img sizes='38px' src="/imgs/icons/4.underBannerIcon/3.png" alt="" />
+          <Img sizes='38px' src="/img/home/underBannerIcon/3.png" alt="" />
           <Span sizes='0.7rem'>최저가보상제</Span>
         </Category>
         <Category>
-          <Img sizes='38px' src="/imgs/icons/4.underBannerIcon/4.png" alt="" />
+          <Img sizes='38px' src="/img/home/underBannerIcon/4.png" alt="" />
           <Span sizes='0.7rem'>선착순쿠폰</Span>
         </Category>
         <Category>
-          <Img sizes='38px' src="/imgs/icons/4.underBannerIcon/5.png" alt="" />
+          <Img sizes='38px' src="/img/home/underBannerIcon/5.png" alt="" />
           <Span sizes='0.7rem'>무한쿠폰룸</Span>
         </Category>
       </Wrapper>
@@ -36,7 +36,6 @@ const MainCont = styled.div`
   display: flex;
   margin: auto;
   max-width: 48.5rem;
-  height: 100%;
   background-color: white;
   border: ${(props) => props.bd};
   border-radius: ${(props) => props.br};

@@ -6,12 +6,12 @@ function Header() {
     <Section>
       <HeaderContainer>
         <HeaderNav>
-          <Img sizes="26px" src="/imgs/icons/1.header/1-header-menu.png" />
+          <Img sizes="26px" src="/img/home/header/1-header-menu.png" />
           <SearchDiv>
             <span>킹특가는 최저가 보상</span>
-            <SearchIcon sizes="20px" src="/imgs/icons/1.header/1-header-search.png" /> 
+            <SearchIcon sizes="20px" src="/img/home/header/1-header-search.png" /> 
           </SearchDiv>
-          <Img sizes="26px" src="/imgs/icons/1.header/1-header-cart.png" />
+          <Img sizes="26px" src="/img/home/header/1-header-cart.png" />
         </HeaderNav>
       </HeaderContainer>
     </Section>
@@ -21,12 +21,14 @@ function Header() {
 export default Header
 
 const Section = styled.div`
-  height: 100%;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  position: fixed;
   margin: 0;
   padding: 0;
   display: block;
   box-sizing: inherit;
-  background-color: white;
 `
 
 const Img = styled.img`

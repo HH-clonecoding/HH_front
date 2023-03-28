@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 function MyPage() {
+    const navi = useNavigate();
+    
   return (
     <MainCont>
         <h2>MY 야놀자</h2>
@@ -9,7 +12,7 @@ function MyPage() {
             <LoginCate>
                 <LoginArea>
                     <span>가입하고, 초특가 혜택 받자!</span>
-                    <span>로그인 및 회원가입 하기{'>'}</span>
+                    <span onClick={()=>{navi("/login")}}>로그인 및 회원가입 하기{'>'}</span>
                 </LoginArea>
                 <button>MY 혜택</button>
             </LoginCate>
