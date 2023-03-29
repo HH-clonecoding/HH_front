@@ -1,24 +1,31 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
 import styled from 'styled-components'
 
-function LocalPlace() {
-    const [currentBtn, setCurrentBtn] = useState('서울');
+function PinkSouth() {
+    const [currentBtn, setCurrentBtn] = useState("부산");
     console.log(currentBtn);
 
     const buttonClickHandler = (e) => {
         setCurrentBtn(e.target.name);
     }
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ["GET_PLACE", currentBtn],
         queryFn: async () => {
-            const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=6&splitPageNumber=1`)
+            const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=4&splitPageNumber=1`)
             return data.data
         }
     })
+
+    // useEffect(()=>{
+    //     refetch();
+    // },[currentBtn])
+
+    console.log(data);
 
     if(data === undefined || isLoading)
         return 
@@ -27,10 +34,10 @@ function LocalPlace() {
             </Loding>
 
     const btnInfo = [
-        { name: "서울", title: "추천 주말여행" },
-        { name: "인천", title: "인천 호텔" },
-        { name: "대전", title: "대전 펜션" },
-        { name: "부산", title: "부산 풀빌라 숙소" },
+        { name: "인천", title: "남해" },
+        { name: "대전", title: "부산"},
+        { name: "부산", title: "통영"},
+        { name: "서울", title: "부안"},
     ]
 
   return (
@@ -38,27 +45,23 @@ function LocalPlace() {
         <LPWrapper>
             <LPHeader>
                 <LPTitle>
-                    <Span weight='700'>이 지역은 이 숙소</Span>
-                    <Span sizes='13px'>관심 지역 근처의 구매 많은 순 추천</Span>
+                    <Span weight='700'>벚꽃 팡 핑크빛 남부지역</Span>
                 </LPTitle>
-                <div>
-                    <Span sizes='15px' weight='700' color='#0152cc'>전체보기</Span>
-                </div>
             </LPHeader>
-            <LPBtnWrapper>
-                {btnInfo.map((item) => 
-                    <LPBtn key={item.index}
-                    focused={currentBtn}
-                    name={item.name}
-                    onClick={buttonClickHandler}>{item.title}</LPBtn>
-                )}
-            </LPBtnWrapper>
+            <LPBtnCont>
+                <LPBtnWrapper>
+                    {btnInfo.map((item) => 
+                        <LPBtn key={item.index}
+                        focused={currentBtn}
+                        name={item.name}
+                        onClick={buttonClickHandler}>{item.title}</LPBtn>
+                    )}
+                </LPBtnWrapper>
+            </LPBtnCont>
             <LPCont>
                 {data.motelList.map((item) => 
-                    <LPSlideCont>
-                        <LPImgCont>
-                            <LPImg src={item?.picture} alt=""/>
-                        </LPImgCont>
+                    <LPDataWrapper>
+                        <LPImg src={item?.picture} alt="" />
                         <LPData>
                             <LPinfoText>
                                 <span>{item?.name}</span>
@@ -68,7 +71,7 @@ function LocalPlace() {
                                 <span>125,000원~</span>
                             </LPinfoText>
                         </LPData>
-                    </LPSlideCont>
+                    </LPDataWrapper>
                 )}
             </LPCont>
         </LPWrapper>
@@ -76,10 +79,12 @@ function LocalPlace() {
   )
 }
 
-export default LocalPlace
+export default PinkSouth
 
 const MainCont = styled.div`
   margin: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   max-width: 48.5rem;
   width: 100%;
   background-color: white;
@@ -102,70 +107,66 @@ const Span = styled.span`
 `
 
 const LPWrapper = styled.div`
-    padding: 1.5rem;
+    padding: 1rem;
 `
 
 const LPHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
 `
 
 const LPTitle = styled.div`
     display: flex;
     flex-direction: column;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
 `
 
 const LPCont = styled.div`
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px
 `
 
-const LPSlideCont = styled.div`
+const LPDataWrapper = styled.div`
     gap: 10px;
     display: flex;
-    flex-direction: row;
-`
-
-const LPImgCont = styled.div`
-    width: 100px;
-    height: 100px;
+    flex-direction: column;
+    width: 23%;
 `
 
 const LPImg = styled.img`
     border-radius: 5px;
-    width: 100%;
-    height: 100%;
 `
 
 const LPData = styled.div`
-    width: 65%;
-    padding: 5px;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+`
+const LPBtnCont = styled.div`
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e6e6e6;
 `
 const LPBtnWrapper = styled.div`
-    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 `
-
 const LPBtn = styled.button`
-    padding: 8px 10px 8px 10px;
-    margin-right: 10px;
-    border: 1px solid #e6e6e6;
-    border-radius: 25px;
-    font-size: 12px;
-    background-color: ${({ focused, name }) => focused === name ? `rgba(1,82,204,.1)` : `white`};
-    color: ${({ focused, name }) => focused === name ? `#0152cc` : `#616161`};
+    border: none;
+    font-size: 13px;
+    padding: 0 0 8px 0;
+    border-bottom: ${({ focused, name }) => focused === name ? `2px solid black` : `white`};
+    background-color: white;
+    color: ${({ focused, name }) => focused === name ? `black` : `#616161`};
     font-weight: ${({ focused, name }) => focused === name ? 700 : 400};
 `
-// rgba(1,82,204,.1);
-// #0152cc;
-// #e6e6e6;
+
 const LPinfoText = styled.div`
     display: flex;
     flex-direction: column;

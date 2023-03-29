@@ -10,6 +10,8 @@ import Test from '../components/home/Test'
 import LocalPlace from '../components/home/LocalPlace'
 import styled from 'styled-components'
 import Hocance from '../components/home/Hocance'
+import PinkSouth from '../components/home/PinkSouth'
+import Footer from '../components/home/Footer'
 
 function Home() {
   return (
@@ -21,7 +23,9 @@ function Home() {
       <SingupEventBanner />
       <LocalPlace />
       <Hocance />
+      <PinkSouth />
       <Asider />
+      <Footer />
     </CPContainer>
   )
 }
@@ -29,5 +33,5 @@ function Home() {
 export default Home
 
 const CPContainer = styled.div`
-  height: 500vh;
+  height: 250vh;
 `

@@ -1,24 +1,29 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
 import styled from 'styled-components'
 
 function Hocance() {
-    const [currentBtn, setCurrentBtn] = useState('서울');
+    const [currentBtn, setCurrentBtn] = useState("대전");
     console.log(currentBtn);
 
     const buttonClickHandler = (e) => {
         setCurrentBtn(e.target.name);
     }
 
-    const { data, isLoading } = useQuery({
-        queryKey: ["GET_PLACE"],
+    const { data, isLoading, refetch } = useQuery({
+        queryKey: ["GET_PLACE", currentBtn],
         queryFn: async () => {
             const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=4&splitPageNumber=1`)
             return data.data
         }
     })
+
+    // useEffect(()=>{
+    //     refetch();
+    // },[currentBtn])
 
     console.log(data);
 
@@ -29,10 +34,10 @@ function Hocance() {
             </Loding>
 
     const btnInfo = [
-        { name: "서울" },
-        { name: "경기강원" },
-        { name: "휴가에딱" },
-        { name: "전국인기" },
+        { name: "인천", title: "서울" },
+        { name: "대전", title: "경기강원"},
+        { name: "부산", title: "휴가에딱"},
+        { name: "서울", title: "전국인기"},
     ]
 
   return (
@@ -46,23 +51,21 @@ function Hocance() {
             <LPBtnCont>
                 <LPBtnWrapper>
                     {btnInfo.map((item) => 
-                        <LPBtn 
+                        <LPBtn key={item.index}
                         focused={currentBtn}
                         name={item.name}
-                        onClick={buttonClickHandler}>{item.name}</LPBtn>
+                        onClick={buttonClickHandler}>{item.title}</LPBtn>
                     )}
                 </LPBtnWrapper>
             </LPBtnCont>
             <LPCont>
                 {data.motelList.map((item) => 
                     <LPDataWrapper>
-                        <LPImgCont>
-                            <img src={item?.picture[0]} alt="" />
-                        </LPImgCont>
+                        <LPImg src={item?.picture} alt="" />
                         <LPData>
                             <LPinfoText>
-                                <span>{item?.name}</span>
-                                <span>{item?.star}</span>
+                                <Span sizes="14px">{item?.name}</Span>
+                                <Span sizes="13px">{item?.star}({item.commentCount})</Span>
                             </LPinfoText>
                             <LPinfoText jc='end'>
                                 <span>125,000원~</span>
@@ -124,30 +127,25 @@ const LPTitle = styled.div`
 
 const LPCont = styled.div`
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 `
 
 const LPDataWrapper = styled.div`
-    width: 100%;
     gap: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 23%;
 `
 
-const LPImgCont = styled.div`
+const LPImg = styled.img`
     border-radius: 5px;
-    width: 100px;
-    height: 100px;
 `
 
 const LPData = styled.div`
-    border: 1px solid black;
     display: flex;
-    width: 100%;
     flex-direction: column;
-    justify-content: space-between;
 `
 const LPBtnCont = styled.div`
     margin-bottom: 1rem;

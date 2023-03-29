@@ -15,7 +15,7 @@ function Asider() {
                 <Img sizes='24px' src="/img/home/footer/5-area.png" alt="" />
                 <Span sizes='0.7rem'>내주변</Span>
             </NavCategory>
-            <NavCategory>
+            <NavCategory onClick={()=>navi("/")}>
                 <Img sizes='55px' src="/img/home/footer/5-mainlogo.png" alt="" />
             </NavCategory>
             <NavCategory>

@@ -40,14 +40,6 @@ function Categorys_4() {
   return (
     <div>
         <MainCont>
-          {/* {img.map((item) => 
-            <Wrapper>
-              <Category>
-                <Img sizes='38px' src={item.image} alt="" />
-                <Span sizes='0.7rem'>{item.category}</Span>
-              </Category>
-            </Wrapper>
-          )} */}
           <Wrapper padding='3.5rem 1.5rem 2rem 1.5rem' rep='repeat(4, 1fr)'>
             <Category>
               <Img sizes='38px' src="/img/home/category/2-motel.png" alt="" />

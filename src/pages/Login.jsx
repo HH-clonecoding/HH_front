@@ -4,7 +4,7 @@ import LoginHeader from '../components/login/LoginHeader'
 
 function Login() {
   const REST_API_KEY = "fd86458f99e6e909168fa3add520c9ca"
-  const REDIRECT_URI = "http://localhost:3002/api/auth/kakao/callback"
+  const REDIRECT_URI = "http://team8-miniproject.s3-website.ap-northeast-2.amazonaws.com/auth/kakao/callback"
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const kakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
