@@ -61,14 +61,14 @@ function PinkSouth() {
             <LPCont>
                 {data.motelList.map((item) => 
                     <LPDataWrapper>
-                        <LPImg src={item?.picture} alt="" />
+                        <LPImg src={item?.picture[0]} alt="" />
                         <LPData>
                             <LPinfoText>
-                                <span>{item?.name}</span>
-                                <span>{item?.star}({item.commentCount})</span>
+                                <Span sizes="14px">{item?.name}</Span>
+                                <Span sizes="13px">{item?.star}({item.commentCount})</Span>
                             </LPinfoText>
                             <LPinfoText jc='end'>
-                                <span>125,000원~</span>
+                                <span>125,000원</span>
                             </LPinfoText>
                         </LPData>
                     </LPDataWrapper>
@@ -129,7 +129,7 @@ const LPCont = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 10px
+    gap: 10px;
 `
 
 const LPDataWrapper = styled.div`
@@ -144,19 +144,21 @@ const LPImg = styled.img`
 `
 
 const LPData = styled.div`
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
 `
+
 const LPBtnCont = styled.div`
     margin-bottom: 1rem;
     border-bottom: 1px solid #e6e6e6;
 `
+
 const LPBtnWrapper = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-around;
 `
+
 const LPBtn = styled.button`
     border: none;
     font-size: 13px;

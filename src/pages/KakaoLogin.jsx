@@ -10,12 +10,12 @@ import { useState } from 'react';
 
 function KakaoLogin({getResult, setGetResult}) {
     const navi = useNavigate();
-    const [getCode, setGetCode] = useState('');
+    // const [getCode, setGetCode] = useState('');
 
     // useEffect(()=>{
     //   const code = new URL(window.location.href).searchParams.get("code");
     //   mutate(code)
-    // },[getCode])
+    // },[])
 
     // useEffect(() => {
     //   (async () => {
@@ -36,26 +36,27 @@ function KakaoLogin({getResult, setGetResult}) {
     // useEffect(() => {
     //   const code = new URL(window.location.href).searchParams.get('code')
     //   const kakaoLogin = async () => {
-    //     await axios
+    //   const result = await axios
     //       .get(`http://54.180.30.108/api/social/kakao/isKaKao?code=${code}`)
     //       .then((res) => {
+    //         console.log(result.data);
     //         Cookies.set('token', res.headers.authorization)
-    //         window.location.href = "/";
+    //         window.location.href = "/mypage";
     //       })
     //   }
     //   kakaoLogin()
     // }, [])
 
-    // const { data, isLoading } = useQuery({
-    //   queryKey: ["GET_KAKAO_USER"],
-    //   queryFn: async () => {
-    //       const code = new URL(window.location.href).searchParams.get('code')
-    //       const data = await axios.get(`http://54.180.30.108/api/social/kakao/isKaKao?code=${code}`)
-    //       return data.data
-    //   }
-    // })
+    const { data, isLoading } = useQuery({
+      queryKey: ["GET_KAKAO_USER"],
+      queryFn: async () => {
+          const code = new URL(window.location.href).searchParams.get('code')
+          const data = await axios.get(`http://54.180.30.108/api/social/kakao/isKaKao?code=${code}`)
+          return data.data
+      }
+    })
 
-    // console.log(data);
+    console.log(data);
     
     // const {mutate, isLoading, isSuccess} = useMutation({
     //     mutationFn: async(payload) => {
@@ -67,17 +68,20 @@ function KakaoLogin({getResult, setGetResult}) {
     //     }
     // })
 
-  //   const {mutate, isLoading, isSuccess} = useMutation({
-  //     mutationFn: async(payload) => {
-  //         const response = await axios.post("http://54.180.30.108/api/social/kakao/isKaKao", {code: payload});
-  //         console.log("result", response);
-  //     },
-  //     onSuccess: () => {
-  //       navi("/mypage");
-  //     }
-  // })
+    // const {mutate, isLoading, isSuccess} = useMutation({
+    //   mutationFn: async() => {
+    //       const code = new URL(window.location.href).searchParams.get('code')
+    //       const response = await axios.get("http://54.180.30.108/api/social/kakao/isKaKao", {code: payload});
+    //       console.log("result", response);
+    //   },
+    //   onSuccess: () => {
+    //     navi("/mypage");
+    //   }
+    // })
 
-  return null;
+  return (
+    <h1>리다이렉트 페이지!!!</h1>
+  )
 }
 
 export default KakaoLogin

@@ -61,14 +61,14 @@ function Hocance() {
             <LPCont>
                 {data.motelList.map((item) => 
                     <LPDataWrapper>
-                        <LPImg src={item?.picture} alt="" />
+                        <LPImg src={item?.picture[0]} alt="" />
                         <LPData>
                             <LPinfoText>
                                 <Span sizes="14px">{item?.name}</Span>
                                 <Span sizes="13px">{item?.star}({item.commentCount})</Span>
                             </LPinfoText>
                             <LPinfoText jc='end'>
-                                <span>125,000원~</span>
+                                <span>125,000원</span>
                             </LPinfoText>
                         </LPData>
                     </LPDataWrapper>

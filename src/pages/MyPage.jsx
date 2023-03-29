@@ -241,7 +241,8 @@ const CateEach = styled.div`
 `
 
 const HelpCont = styled.div`
-    height: 32vh;
+    height: 25vh;
+    height: 100%;
     margin-top: 1rem;
     font-size: 0.9rem;
     display: flex;
