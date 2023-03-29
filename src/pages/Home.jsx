@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
-import Header from '../components/Header'
+import Header from '../components/home/Header'
+import Asider from '../components/home/Asider'
+import AutoBanner from '../components/home/AutoBanner'
+import Carousel from '../components/home/Carousel'
+import CategorysFour from '../components/home/CategorysFour'
+import CategorysFive from '../components/home/CategorysFive'
+import SingupEventBanner from '../components/home/SignupEventBanner'
+import Test from '../components/home/Test'
+import LocalPlace from '../components/home/LocalPlace'
 import styled from 'styled-components'
-import AutoBanner from '../components/AutoBanner'
-import Carousel from '../components/Carousel'
-import CategorysFour from '../components/CategorysFour'
-import CategorysFive from '../components/CategorysFive'
-import SingupEventBanner from '../components/SignupEventBanner'
-import Test from '../components/Test'
+import Hocance from '../components/home/Hocance'
+import PinkSouth from '../components/home/PinkSouth'
+import Footer from '../components/home/Footer'
 import { useNavigate } from 'react-router'
 
 function Home() {
@@ -19,18 +24,23 @@ function Home() {
   }
 
   return (
-    <>
+    <CPContainer>
       <Header />
       <CategorysFour />
       <Test />
       <CategorysFive />
       <SingupEventBanner />
-      
-      {/* 임시 상세페이지 이동 버튼 : 나중에 삭제할 것 */}
-      <input value={id} onChange={(e)=>setId(e.target.value)} />
-      <button onClick={move}>상세페이지 이동</button>
-    </>
+      <LocalPlace />
+      <Hocance />
+      <PinkSouth />
+      <Asider />
+      <Footer />
+    </CPContainer>
   )
 }
 
 export default Home
+
+const CPContainer = styled.div`
+  height: 250vh;
+`
