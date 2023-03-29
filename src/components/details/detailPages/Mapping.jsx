@@ -1,13 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react'
-import { Container as MapDiv, NaverMap, Marker, useNavermaps, RenderAfterNavermapsLoaded } from 'react-naver-maps';
-import { apis_naver } from '../../../axios/apis';
+import { Container as MapDiv, NaverMap, Marker, useNavermaps, RenderAfterNavermapsLoaded, InfoWindow } from 'react-naver-maps';
 
 const Mapping = () => {
 
 
     const target = useQuery(["getDetails"]).data.location.address;
-    
+
     const [scaleControl, setScaleControl] = useState(true);
     const navermaps = useNavermaps();
 
@@ -28,12 +27,11 @@ const Mapping = () => {
             defaultLat = items[0].point.x;
             defaultLng = items[0].point.y;
             setLocate({
-                x : defaultLat,
-                y : defaultLng,
+                x: defaultLat,
+                y: defaultLng,
             })
         });
     }, []);
-
 
     return (
         <MapDiv style={{ width: '100%', height: '400px' }}>
@@ -42,6 +40,9 @@ const Mapping = () => {
                     defaultCenter={new navermaps.LatLng(locate.y, locate.x)}
                     defaultZoom={15}
                     zoomControl={scaleControl}
+                    zoomControlOptions={{
+                        position : navermaps.Position.RIGHT_CENTER
+                    }}
                     mapTypeControl={true}
                 >
                     <Marker
