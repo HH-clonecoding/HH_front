@@ -6,17 +6,17 @@ function LoginInput({changeInputHandler, signupData}) {
         <span>아이디</span>
         <input
             type="text"
-            name="password"
+            name="userId"
             minLength={8}
             maxLength={20}
-            value={signupData.password || ""}
+            value={signupData.userId || ""}
             onChange={changeInputHandler}
         />
         <span>비밀번호</span>
         <input
-            type="password"
-            name="passwordCheck"
-            value={signupData.passwordCheck || ""}
+            // type="password"
+            name="password"
+            value={signupData.password || ""}
             onChange={changeInputHandler}
         />
     </div>
