@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/home/Header'
 import Asider from '../components/home/Asider'
 import CategorysFour from '../components/home/CategorysFour'
@@ -9,8 +9,17 @@ import LocalPlace from '../components/home/LocalPlace'
 import Hocance from '../components/home/Hocance'
 import PinkSouth from '../components/home/PinkSouth'
 import Footer from '../components/home/Footer'
+import { useNavigate } from 'react-router'
 
 function Home() {
+  
+  const navigation = useNavigate();
+  const [id,setId] = useState();
+  
+  const move = () => {
+    navigation(`/detail/${id}`);
+  }
+
   return (
     <div>
       <Header />

@@ -1,9 +1,10 @@
 import React from 'react'
-import DetailCarousel from './AboutCarousel';
+import AboutCarousel from './AboutCarousel';
 import BasicInform from './BasicInform';
 import FacilityInform from './FacilityInform';
 import { VFlex } from '../../customValues/styleStore';
 import { MAX_WIDTH } from '../../customValues/pubVariables';
+import { useQuery } from '@tanstack/react-query';
 
 function AboutHotel() {
     const vFlexStyle = `
@@ -13,11 +14,14 @@ function AboutHotel() {
     background-color : white;
     `;
 
+    const { data } = useQuery(["getDetails"]);
+    console.log(data);
+
     return (
         <VFlex etc={vFlexStyle}>
-            <DetailCarousel />
-            <BasicInform />
-            <FacilityInform />
+            <AboutCarousel images={data.picture}/>
+            <BasicInform data={data}/>
+            <FacilityInform systems={data.system}/>
         </VFlex>
     )
 }

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { facilities, facilitiesName } from '../../customValues/pubVariables';
 import { HFlex, HFlexSpaceBetween, VFlex, VFlexCenter } from '../../customValues/styleStore';
 
-function FacilityInform() {
+function FacilityInform({systems}) {
 
-    const sampleArray = ["park", "amenity", "desk", "mill"];
+    const dataArray = systems.map((element) => element.replace(' ',''));
     
     return (
         <CompContainer>
@@ -18,11 +18,11 @@ function FacilityInform() {
                     </HFlex>
                 </HFlexSpaceBetween>
                 <HFlex etc='flex-wrap:wrap; align-items:top;'>
-                    {sampleArray.map((element) => {
+                    {dataArray.map((element) => {
                         return (
                             <VFlexCenter width='4rem' key={uuid()} etc='align-self:flex-start;'>
-                                <IconStyle src={facilities[element]} />
-                                <FacilityName>{facilitiesName[element]}</FacilityName>
+                                <IconStyle src={facilities[element]} key={uuid()}/>
+                                <FacilityName key={uuid()}>{facilitiesName[element]}</FacilityName>
                             </VFlexCenter>
                         )
                     })}

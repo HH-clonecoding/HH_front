@@ -30,19 +30,6 @@ function MainNav({select}) {
                 <Li>
                     <NavButton
                         focused={currentBtn}
-                        name='3'
-                        onClick={buttonClickHandler}
-                    >안내/정책</NavButton>
-                </Li>
-                <Li>
-                    <NavButton
-                        focused={currentBtn}
-                        name='4'
-                        onClick={buttonClickHandler}>시설/서비스</NavButton>
-                </Li>
-                <Li>
-                    <NavButton
-                        focused={currentBtn}
                         name='5'
                         onClick={buttonClickHandler}>후기</NavButton>
                 </Li>
@@ -64,7 +51,7 @@ const NavButton = styled.button`
     background-color: transparent;
     border-bottom: ${({ focused, name }) => focused === name ? `2px solid blue` : null};
     font-weight : ${({ focused, name }) => focused === name ? `bold` : 400};
-    color : ${({ focused, name }) => focused === name ? `blue` : {TEXT_COLOR}};
+    color : ${({ focused, name }) => focused === name ? `#0152cc` : {TEXT_COLOR}};
 `
 const ButtonContainer = styled.nav`
     width: 100%;

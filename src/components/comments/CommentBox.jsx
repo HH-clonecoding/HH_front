@@ -1,11 +1,15 @@
 import React from 'react'
+import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { TEXT_COLOR } from '../../customValues/pubVariables';
 import { HFlex, HFlexSpaceBetween, VFlex } from '../../customValues/styleStore';
 
-const CommentBox = () => {
-    const rate = 4;
+const CommentBox = ({comment}) => {
+    
+    const rate = comment.rate;
     const arr = [0,0,0,0,0];
+
+    const edittedDate = comment.createDate.split('T')[0].replace(/-/g,'.');
     
     return (
         <BoxContainer>
@@ -17,8 +21,8 @@ const CommentBox = () => {
                             <StarRate>
                                 {arr.fill(1,0,rate).map((element) => {
                                     return element
-                                    ? <InlineImage src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTguMTIgMEw1LjQ0MiA1LjAyOCAwIDYuMTEybDMuNzkgNC4xOTEtLjY4OSA1LjY5OCA1LjAxOC0yLjQzOSA1LjAxOCAyLjQ0LS42ODgtNS42OTkgMy43OS00LjE5LTUuNDQ0LTEuMDg1eiIgZmlsbD0iI0ZGQ0QzNCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" />
-                                    : <InlineImage src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTguODgxIDBMNi4yMDUgNS4wMjguNzYyIDYuMTEybDMuNzkgNC4xOTEtLjY4OSA1LjY5OCA1LjAxOC0yLjQzOSA1LjAxOCAyLjQ0LS42ODgtNS42OTlMMTcgNi4xMTNsLTUuNDQzLTEuMDg1eiIgZmlsbD0iI0U2RTZFNiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" />
+                                    ? <InlineImage key={uuid()} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTguMTIgMEw1LjQ0MiA1LjAyOCAwIDYuMTEybDMuNzkgNC4xOTEtLjY4OSA1LjY5OCA1LjAxOC0yLjQzOSA1LjAxOCAyLjQ0LS42ODgtNS42OTkgMy43OS00LjE5LTUuNDQ0LTEuMDg1eiIgZmlsbD0iI0ZGQ0QzNCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" />
+                                    : <InlineImage key={uuid()} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTguODgxIDBMNi4yMDUgNS4wMjguNzYyIDYuMTEybDMuNzkgNC4xOTEtLjY4OSA1LjY5OCA1LjAxOC0yLjQzOSA1LjAxOCAyLjQ0LS42ODgtNS42OTlMMTcgNi4xMTNsLTUuNDQzLTEuMDg1eiIgZmlsbD0iI0U2RTZFNiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" />
                                 })}
                             </StarRate>
                             <ButtonDot>
@@ -26,17 +30,17 @@ const CommentBox = () => {
                             </ButtonDot>
                         </HFlexSpaceBetween>
                         <div style={{ fontSize: '14px', color : 'rgb(97, 97, 97)'}}>
-                            <span>닉네임</span>
+                            <span>{comment.nickname}</span>
                             <span>{' | '}</span>
-                            <span> 2022.10.18 </span>
+                            <span> {edittedDate} </span>
                         </div>
                     </VFlex>
                 </HFlex>
                 <HFlex gap='15px'>
                     <RoomNameLabel>객실명</RoomNameLabel>
-                    <RoomName>트윈</RoomName>
+                    <RoomName>{comment.stayedroom}</RoomName>
                 </HFlex>
-                <TextBox>댓글내용</TextBox>
+                <TextBox>{comment.comment}</TextBox>
             </VFlex>
         </BoxContainer>
     )

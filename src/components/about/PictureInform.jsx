@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function PictureInform({count}) {
+function PictureInform({count,total}) {
     return (
         <InformContainer>
-            <StSpan>{`1 / ${count} | 전체 사진`}</StSpan>
+            <StSpan>{`${count} / ${total} | 전체 사진`}</StSpan>
             </InformContainer>
     )
 }

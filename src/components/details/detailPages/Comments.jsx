@@ -5,10 +5,11 @@ import CommentList from '../../comments/CommentList';
 import Summary from '../../comments/Summary';
 
 const Comments = () => {
+  
   return (
     <div style={{marginTop:'1px',backgroundColor:`${PAGE_BACKGROUND_COLOR}`}}>
       <VFlex>
-        <Summary />
+        <Summary/>
         <CommentList />
       </VFlex>
     </div>

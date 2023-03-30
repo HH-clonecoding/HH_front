@@ -4,7 +4,8 @@ export const IMAGE_HEIGHT = '507px';
 export const PAGE_BACKGROUND_COLOR = '#f2f2f2';
 export const TEXT_COLOR = '#1a1a1a';
 export const PADDING_TOP = '48px';
-export const CONTENTS_BACKGROUND_COLOR = 'rgb(242, 242, 242)';
+export const CONTENTS_BACKGROUND_COLOR = 'rgb(245, 245, 245)';
+export const publicPath = process.env.PUBLIC_URL;
 
 
 export const sampleImages = [
@@ -18,15 +19,15 @@ export const sampleImages = [
 
 export const facilities =
 {
-    park: "img/facility/park.png",
-    business: "img/facility/business.png",
-    wifi: "img/facility/wifi.png",
-    amenity: "img/facility/amenity.png",
-    desk: "img/facility/desk.png",
-    labtop: "img/facility/labtop.png",
-    mill: "img/facility/mill.png",
-    smoking: "img/facility/smoking.png",
-    takecare: "img/facility/takecare.png"
+    park: publicPath+"/img/facility/park.png",
+    business: publicPath+"/img/facility/business.png",
+    wifi: publicPath+"/img/facility/wifi.png",
+    amenity: publicPath+"/img/facility/amenity.png",
+    desk: publicPath+"/img/facility/desk.png",
+    labtop: publicPath+"/img/facility/labtop.png",
+    mill: publicPath+"/img/facility/mill.png",
+    smoking: publicPath+"/img/facility/smoking.png",
+    takecare: publicPath+"/img/facility/takecare.png"
 }
 
 export const facilitiesName = 
