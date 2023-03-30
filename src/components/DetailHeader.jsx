@@ -1,21 +1,23 @@
 import styled from 'styled-components';
 import React from 'react'
-import { HFlex, HFlexSpaceBetween, VFlex } from '../customValues/styleStore';
-import { useNavigate, useParams } from 'react-router';
-import { useQuery } from '@tanstack/react-query';
-import { apis } from '../axios/apis';
+import { HFlexSpaceBetween } from '../customValues/styleStore';
+import { useNavigate } from 'react-router';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 function DetailHeader() {
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   const {data} = useQuery(["getDetails"]);
+  
+  const cache = useQueryClient();
+  console.log(cache);
   
   return (
     <Header>
       <Container>
           <HFlexSpaceBetween height='100%'>
-            <ButtonNoBorder onClick={()=>navigate(-1)}>
+            <ButtonNoBorder onClick={() => navigate(-1)}>
               <img src={process.env.PUBLIC_URL + "/img/detailheader/back.svg"}></img>
             </ButtonNoBorder>
             <div style={{fontSize:'20px',fontWeight:'bold'}}>{data?.name}</div>
