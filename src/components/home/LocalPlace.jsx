@@ -57,7 +57,7 @@ function LocalPlace() {
                 {data.motelList.map((item) => 
                     <LPSlideCont>
                         <LPImgCont>
-                            <LPImg src={item?.picture} alt=""/>
+                            <LPImg src={item?.picture[0]} alt=""/>
                         </LPImgCont>
                         <LPData>
                             <LPinfoText>
@@ -65,7 +65,7 @@ function LocalPlace() {
                                 <span>{item?.star}({item.commentCount})</span>
                             </LPinfoText>
                             <LPinfoText jc='end'>
-                                <span>125,000원~</span>
+                                <span>125,000원</span>
                             </LPinfoText>
                         </LPData>
                     </LPSlideCont>

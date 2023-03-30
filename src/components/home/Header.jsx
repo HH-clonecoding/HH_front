@@ -26,9 +26,11 @@ const Section = styled.div`
   background-color: white;
   position: fixed;
   margin: 0;
-  padding: 0;
+  padding-bottom: 8px;
   display: block;
   box-sizing: inherit;
+  box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.2);
+  z-index: 1;
 `
 
 const Img = styled.img`

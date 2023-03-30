@@ -42,5 +42,5 @@ function Home() {
 export default Home
 
 const CPContainer = styled.div`
-  height: 250vh;
+  height: 248vh;
 `

@@ -40,7 +40,7 @@ function Categorys_4() {
   return (
     <div>
         <MainCont>
-          <Wrapper padding='3.5rem 1.5rem 2rem 1.5rem' rep='repeat(4, 1fr)'>
+          <Wrapper padding='4rem 1.5rem 2rem 1.5rem' rep='repeat(4, 1fr)'>
             <Category>
               <Img sizes='38px' src="/img/home/category/2-motel.png" alt="" />
               <Span sizes='0.7rem'>모텔</Span>

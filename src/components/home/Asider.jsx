@@ -42,6 +42,7 @@ const AsideCont = styled.div`
     z-index: 20;
     padding: 0.8rem;
     background-color: white;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.2);
 `
 const Nav = styled.div`
     width: 100%;
