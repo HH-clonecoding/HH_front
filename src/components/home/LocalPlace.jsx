@@ -22,8 +22,6 @@ function LocalPlace() {
         }
     })
 
-    console.log("data", data)
-
     useEffect(()=>{
         refetch()
     },[currentBtn])
@@ -62,14 +60,14 @@ function LocalPlace() {
                 )}
             </LPBtnWrapper>
             <LPCont>
-                {data?.motelList.map((item, index) => 
-                    <LPSlideCont onClick={()=>{navi(`/detail/${parseInt(index)}`)}}>
+                {data.motelList.map((item) => 
+                    <LPSlideCont key={item.placeId} onClick={()=>{navi(`/detail/${item.placeId}`)}}>
                         <LPImgCont>
-                            <LPImg src={item?.picture[0]} alt=""/>
+                            <LPImg src={item.picture[0]} alt=""/>
                         </LPImgCont>
                         <LPData>
                             <LPinfoText>
-                                <span>{item?.name}</span>
+                                <span>{item.name}</span>
                                 {/* <StarRating starRate={data.star} voteCount={data.commentCount}/> */}
                             </LPinfoText>
                             <LPinfoText jc='end'>

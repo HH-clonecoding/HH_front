@@ -27,10 +27,10 @@ function EmailLogin() {
   //   componentState < 4 && setComponentState(componentState + 1)
   // }
 
-  const loginHandler = () => {
-    const loginResult = mutate(signupData);
-    console.log(loginResult);
-  }
+  // const loginHandler = () => {
+  //   const loginResult = mutate(signupData);
+  //   console.log(loginResult);
+  // }
 
 
   // console.log(func);
@@ -50,10 +50,6 @@ function EmailLogin() {
       alert('영문 대소문자, 숫자, 특수문자 조합으로 8-20자 이하로 입력해주세요');
       return;
     }
-    if (signupData.password !== signupData.passwordCheck) {
-      alert('password 입력이 일치하지 않습니다');
-      return;
-    }
     else {
       alert('환영합니다!')
     }
@@ -68,7 +64,6 @@ function EmailLogin() {
     }
   })
 
-
   return (
     <div>
       <Header>
@@ -79,9 +74,7 @@ function EmailLogin() {
           signupData={signupData}
           changeInputHandler={changeInputHandler}
         />
-      </MainCont>
-      <MainCont>
-        <button onClick={loginHandler}>로그인 하기</button>
+        <LoginBtn onClick={checkSignupData}>로그인</LoginBtn>
       </MainCont>
     </div>
   )
@@ -99,12 +92,25 @@ const Header = styled.div`
 `
 
 const MainCont = styled.div`
-  border: 1px solid black;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 1rem;
   max-width: 45.5rem;
-  height: 100%;
+  height: 43.7vh;
   background-color: white;
-  overflow: cover;
+`
+
+const LoginBtn = styled.button`
+  width: 100%;
+  height: 48px;
+  background-color: #de2e5f;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  &:hover{
+    background-color: #bb1e4a;
+  }
 `

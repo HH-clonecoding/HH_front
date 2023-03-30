@@ -15,7 +15,6 @@ function AboutHotel() {
     `;
 
     const { data } = useQuery(["getDetails"]);
-    console.log(data);
 
     return (
         <VFlex etc={vFlexStyle}>

@@ -10,8 +10,8 @@ function DetailHeader() {
 
   const {data} = useQuery(["getDetails"]);
   
-  const cache = useQueryClient();
-  console.log(cache);
+  // const cache = useQueryClient();
+  // console.log(cache);
   
   return (
     <Header>

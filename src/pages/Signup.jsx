@@ -94,8 +94,8 @@ function Signup() {
         <MainCont>
             {
                 componentState === 3
-                ? <button onClick={checkSignupData}>회원가입 완료</button>
-                : <button onClick={nextBtnHandler}>다음</button>
+                ? <LoginBtn onClick={checkSignupData}>회원가입 완료</LoginBtn>
+                : <LoginBtn onClick={nextBtnHandler}>다음</LoginBtn>
             }
         </MainCont>
     </div>
@@ -114,7 +114,6 @@ const Header = styled.div`
 `
 
 const MainCont = styled.div`
-  border: 1px solid black;
   display: flex;
   margin: 0 auto;
   padding: 1rem;
@@ -122,4 +121,18 @@ const MainCont = styled.div`
   height: 100%;
   background-color: white;
   overflow: cover;
+`
+
+const LoginBtn = styled.button`
+  width: 100%;
+  height: 48px;
+  background-color: #de2e5f;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  &:hover{
+    background-color: #bb1e4a;
+  }
 `

@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "../../slick.css";
 import "../../slick-theme.css";
+import uuid from "react-uuid";
 import banners from "../../source/banners";
 import styled from "styled-components";
 
@@ -22,7 +23,7 @@ function CenterMode() {
       <MainCont>
         <Slider {...settings}>
             {banners.map((item) =>
-              <div>
+              <div key={uuid()}>
                 <img src={item.image} alt="banners" style={{ width:"100%"}} />
               </div>
               ) 

@@ -2,10 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import uuid from 'react-uuid';
 import styled from 'styled-components'
 import { apis } from '../../axios/apis';
 
 function Hocance() {
+    const navi = useNavigate();
     const [currentBtn, setCurrentBtn] = useState("인천");
 
     const buttonClickHandler = (e) => {
@@ -48,7 +51,7 @@ function Hocance() {
             <LPBtnCont>
                 <LPBtnWrapper>
                     {btnInfo.map((item) => 
-                        <LPBtn key={item.index}
+                        <LPBtn key={uuid()}
                         focused={currentBtn}
                         name={item.name}
                         onClick={buttonClickHandler}>{item.title}</LPBtn>
@@ -57,7 +60,7 @@ function Hocance() {
             </LPBtnCont>
             <LPCont>
                 {data.motelList.map((item) => 
-                    <LPDataWrapper>
+                    <LPDataWrapper key={item.placeId} onClick={()=>{navi(`/detail/${item.placeId}`)}}>
                         <LPImg src={item?.picture[0]} alt="" />
                         <LPData>
                             <LPinfoText>

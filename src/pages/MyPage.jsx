@@ -1,21 +1,31 @@
 import React from 'react'
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import KakaoLogin from './KakaoLogin';
 import Asider from '../components/home/Asider';
+import { getCookie, removeCookie } from '../axios/cookies';
+import { useState } from 'react';
 
 function MyPage() {
-    const navi = useNavigate();
-    const [getResult, setGetResult] = useState("");
-    console.log(getResult);
+  const navi = useNavigate();
+  const [token, setToken] = useState('');
     
+  useEffect(()=>{
+    setToken(getCookie("token"));
+  },[token]);
+
+
+  const logoutHandler = () => {
+    removeCookie("token")
+    navi("/");
+  }
+
   return (
     <>
     <Section>
       <HeaderContainer>
         <HeaderNav>
-            <h3>MY 야놀자</h3>
+            <h3>MY 야놀자</h3>z
         </HeaderNav>
       </HeaderContainer>
     </Section>
@@ -24,9 +34,16 @@ function MyPage() {
             <LoginCate>
                 <LoginArea>
                     <Span sizes="12px" color='#525252'>가입하고, 초특가 혜택 받자!</Span>
+                    {!token ? 
                     <Span color="#0152cc" fw="700" onClick={()=>{navi("/login")}}>로그인 및 회원가입 하기
                         <img src="/img/mypage/asb.png" alt="asb" />
                     </Span>
+                    : 
+                    <Span color="#0152cc" fw="700" onClick={logoutHandler}>로그아웃
+                        <img src="/img/mypage/asb.png" alt="asb" />
+                    </Span>
+                    }
+                    
                 </LoginArea>
                 <MyAdventage>MY 혜택</MyAdventage>
             </LoginCate>
