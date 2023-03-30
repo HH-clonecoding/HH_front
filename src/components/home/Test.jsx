@@ -4,31 +4,30 @@ import "../../slick.css";
 import "../../slick-theme.css";
 import banners from "../../source/banners";
 import styled from "styled-components";
-import { useState } from "react";
 
 function CenterMode() {
     const settings = {
         className: "center",
         centerMode: true,
-        infinite: banners.length > 3,
+        infinite: true,
         centerPadding: "50px",
         slidesToShow: 2,
         speed: 500,
         autoplay: true,
+        arrows: false,
         autoplaySpeed: 3000,
       };
-
-    
 
     return (
       <MainCont>
         <Slider {...settings}>
             {banners.map((item) =>
-                <img src={item.image} alt="" style={{ width:"100px" }}/>
-                ) 
+              <div>
+                <img src={item.image} alt="banners" style={{ width:"100%"}} />
+              </div>
+              ) 
             }
         </Slider>
-        <span>{'<'} {banners.index}/{banners.length} {'>'}</span>
     </MainCont>
     );
 }

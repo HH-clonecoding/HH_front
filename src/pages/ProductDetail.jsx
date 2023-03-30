@@ -21,6 +21,8 @@ function ProductDetail() {
     },
   });
 
+  console.log("pd", data);
+
   if (!data || isLoading) {
     return <div>로딩 중입니다...</div>;
   }

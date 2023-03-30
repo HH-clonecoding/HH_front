@@ -20,7 +20,6 @@ function Products() {
         },
     });
 
-
     return (
         <ProductsContainer>
             <HFlex gap='1px' etc='flex-wrap:wrap;'>

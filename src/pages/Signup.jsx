@@ -8,6 +8,7 @@ import SignupHeader from '../components/signup/SignupHeader';
 import { idCheck, pwCheck } from '../shared/regExp';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { apis } from '../axios/apis';
 
 function Signup() {
     const navi = useNavigate();
@@ -44,12 +45,7 @@ function Signup() {
         if (!pwCheck(password)) {
           alert('영문 대소문자, 숫자, 특수문자 조합으로 8-20자 이하로 입력해주세요');
           return;
-        } 
-        if (signupData.password !== signupData.passwordCheck) {
-          alert('password 입력이 일치하지 않습니다');
-          return;
-        }
-         else {
+        } else {
           alert('회원가입 완료되었습니다')
         }
         mutate(signupData);
@@ -59,7 +55,7 @@ function Signup() {
     //회원가입 query요청 함수
     const {mutate, isLoading, isSuccess} = useMutation({
         mutationFn: async(payload) => {
-            axios.post("REACT_APP_SERVER/api/user/signup", payload);
+            apis.post("/api/user/signup", payload);
         }
     })
 
