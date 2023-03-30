@@ -13,13 +13,17 @@ import { apis } from '../axios/apis'
 function ProductDetail() {
   const param = useParams();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['getDetails'],
     queryFn: async () => {
       const response = await apis.get(`/api/place/${param.id}`);
       return response.data;
     },
   });
+
+  useEffect(() => {
+    refetch();
+  },[]);
 
   console.log("pd", data);
 
