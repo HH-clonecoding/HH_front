@@ -14,7 +14,7 @@ function SignupHeader({componentState, setComponentState}) {
         <div onClick={()=>{
           setComponentState(componentState-1);
         }}>
-          <img src="/imgs/icons/7.other/btn-back.png" alt="" />
+          <img src="/img/other/btn-back.png" alt="" />
         </div>
       }
 

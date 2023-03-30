@@ -45,12 +45,9 @@ const AsideCont = styled.div`
     box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.2);
 `
 const Nav = styled.div`
-    width: 100%;
     max-width: 48.5rem;
     margin: auto;
     justify-content: space-between;
-    background-position-x: -22px;
-    background-position-y: -22px;
     box-shadow: 1px;
 `
 const NavWrapper = styled.div`

@@ -11,9 +11,16 @@ function MyPage() {
     console.log(getResult);
     
   return (
+    <>
+    <Section>
+      <HeaderContainer>
+        <HeaderNav>
+            <h3>MY 야놀자</h3>
+        </HeaderNav>
+      </HeaderContainer>
+    </Section>
     <MainCont>
-        <h2>MY 야놀자</h2>
-        <MyCategorys margin="1.5rem">
+        <MyCategorys margin="5rem 1.5rem 1.5rem 1.5rem">
             <LoginCate>
                 <LoginArea>
                     <Span sizes="12px" color='#525252'>가입하고, 초특가 혜택 받자!</Span>
@@ -126,13 +133,45 @@ function MyPage() {
                 <img src="/img/mypage/asb.png" alt="asb" />
             </HelpSet>
         </HelpCont>
-        <Asider />
-        <KakaoLogin setGetResult={setGetResult}/>
     </MainCont>
+    <Asider />
+    </>
   )
 }
 
 export default MyPage
+
+const Section = styled.div`
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  position: fixed;
+  margin: 0;
+  padding-bottom: 8px;
+  display: block;
+  box-sizing: inherit;
+  box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.2);
+  z-index: 1;
+`
+
+const HeaderContainer = styled.div`
+  top: 0;
+  width: 100%;
+  padding-left: 1rem;
+`
+
+const HeaderNav = styled.div`
+    width: 100%;
+    position: relative;
+    max-width: 48.5rem;
+    z-index: 20;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0 auto;
+    height: 2rem; // 48px예정
+    padding: 0.8rem;
+`
 
 const MainCont = styled.div`
   display: flex;
@@ -241,8 +280,7 @@ const CateEach = styled.div`
 `
 
 const HelpCont = styled.div`
-    height: 25vh;
-    height: 100%;
+    height: 35vh;
     margin-top: 1rem;
     font-size: 0.9rem;
     display: flex;
