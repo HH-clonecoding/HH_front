@@ -63,7 +63,7 @@ function LocalPlace() {
             </LPBtnWrapper>
             <LPCont>
                 {data?.motelList.map((item, index) => 
-                    <LPSlideCont onClick={()=>{navi(`/detail/${parseInt(index)}`)}}>
+                    <LPSlideCont onClick={()=>{navi(`/detail/${item.placeId}`)}}>
                         <LPImgCont>
                             <LPImg src={item?.picture[0]} alt=""/>
                         </LPImgCont>
