@@ -1,21 +1,18 @@
 import React from 'react'
 import Header from '../components/home/Header'
 import Asider from '../components/home/Asider'
-import AutoBanner from '../components/home/AutoBanner'
-import Carousel from '../components/home/Carousel'
 import CategorysFour from '../components/home/CategorysFour'
 import CategorysFive from '../components/home/CategorysFive'
 import SingupEventBanner from '../components/home/SignupEventBanner'
 import Test from '../components/home/Test'
 import LocalPlace from '../components/home/LocalPlace'
-import styled from 'styled-components'
 import Hocance from '../components/home/Hocance'
 import PinkSouth from '../components/home/PinkSouth'
 import Footer from '../components/home/Footer'
 
 function Home() {
   return (
-    <CPContainer>
+    <div>
       <Header />
       <CategorysFour />
       <Test />
@@ -26,12 +23,8 @@ function Home() {
       <PinkSouth />
       <Asider />
       <Footer />
-    </CPContainer>
+    </div>
   )
 }
 
 export default Home
-
-const CPContainer = styled.div`
-  height: 248vh;
-`

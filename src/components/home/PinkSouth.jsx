@@ -6,26 +6,23 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 function PinkSouth() {
-    const [currentBtn, setCurrentBtn] = useState("부산");
-    console.log(currentBtn);
+    const [currentBtn, setCurrentBtn] = useState("대전");
 
     const buttonClickHandler = (e) => {
         setCurrentBtn(e.target.name);
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ["GET_PLACE", currentBtn],
+        queryKey: ["GET_PINK_SEOUL"],
         queryFn: async () => {
             const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=4&splitPageNumber=1`)
             return data.data
         }
     })
 
-    // useEffect(()=>{
-    //     refetch();
-    // },[currentBtn])
-
-    console.log(data);
+    useEffect(()=>{
+        refetch()
+    },[currentBtn])
 
     if(data === undefined || isLoading)
         return 
@@ -34,10 +31,10 @@ function PinkSouth() {
             </Loding>
 
     const btnInfo = [
-        { name: "인천", title: "남해" },
-        { name: "대전", title: "부산"},
-        { name: "부산", title: "통영"},
-        { name: "서울", title: "부안"},
+        { name: "대전", title: "남해" },
+        { name: "부산", title: "부산"},
+        { name: "서울", title: "통영"},
+        { name: "인천", title: "부안"},
     ]
 
   return (

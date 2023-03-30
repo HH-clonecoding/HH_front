@@ -6,26 +6,23 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 function Hocance() {
-    const [currentBtn, setCurrentBtn] = useState("대전");
-    console.log(currentBtn);
+    const [currentBtn, setCurrentBtn] = useState("인천");
 
     const buttonClickHandler = (e) => {
         setCurrentBtn(e.target.name);
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ["GET_PLACE", currentBtn],
+        queryKey: ["GET_Hocance"],
         queryFn: async () => {
             const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=4&splitPageNumber=1`)
             return data.data
         }
     })
 
-    // useEffect(()=>{
-    //     refetch();
-    // },[currentBtn])
-
-    console.log(data);
+    useEffect(()=>{
+        refetch()
+    },[currentBtn])
 
     if(data === undefined || isLoading)
         return 
@@ -87,6 +84,7 @@ const MainCont = styled.div`
   margin-bottom: 0.5rem;
   max-width: 48.5rem;
   width: 100%;
+  height: 100%;
   background-color: white;
   overflow: cover;
 `

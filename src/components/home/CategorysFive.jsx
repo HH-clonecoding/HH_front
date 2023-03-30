@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function CategorysFive() {
   return (
     <MainCont>
-      <Wrapper padding='0.3rem 2.5rem 1.5rem 2.5rem' rep='repeat(5, 1fr)'>
+      <Wrapper padding='0rem 2.5rem 1.5rem 2.5rem' rep='repeat(5, 1fr)'>
         <Category>
           <Img sizes='38px' src="/img/home/underBannerIcon/1.png" alt="" />
           <Span sizes='0.7rem'>킹특가야놀자</Span>
@@ -48,7 +48,6 @@ const Wrapper = styled.div`
 `
 
 const Img = styled.img`
-  padding-top: 0.8rem;
   width: ${(props) => props.sizes};
   height: ${(props) => props.sizes};
 `
@@ -64,25 +63,4 @@ const Category = styled.div`
 const Span = styled.span`
     font-size: ${(props) => props.sizes};
     font-weight: 700;
-`
-
-const SignupEventContainer = styled.div`
-  width: 100%;
-  height: 3.3rem;
-  display: flex;
-  padding: 0.8rem;
-`
-
-const SignupEventbanner = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-`
-
-const BannerComment = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
 `

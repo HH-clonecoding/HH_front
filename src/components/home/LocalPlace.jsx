@@ -1,24 +1,30 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
 function LocalPlace() {
+    const navi = useNavigate();
     const [currentBtn, setCurrentBtn] = useState('서울');
-    console.log(currentBtn);
 
     const buttonClickHandler = (e) => {
         setCurrentBtn(e.target.name);
     }
 
-    const { data, isLoading } = useQuery({
-        queryKey: ["GET_PLACE", currentBtn],
+    const {data, isLoading, refetch} = useQuery({
+        queryKey: ["GET_PLACE"],
         queryFn: async () => {
             const data = await axios.get(`http://54.180.30.108:3002/api/place/?city=${currentBtn}&splitNumber=6&splitPageNumber=1`)
-            return data.data
+            return data.data;
         }
     })
+
+    useEffect(()=>{
+        refetch()
+    },[currentBtn])
 
     if(data === undefined || isLoading)
         return 
@@ -54,8 +60,8 @@ function LocalPlace() {
                 )}
             </LPBtnWrapper>
             <LPCont>
-                {data.motelList.map((item) => 
-                    <LPSlideCont>
+                {data?.motelList.map((item, index) => 
+                    <LPSlideCont onClick={()=>{navi(`/detail/${index + 1}`)}}>
                         <LPImgCont>
                             <LPImg src={item?.picture[0]} alt=""/>
                         </LPImgCont>

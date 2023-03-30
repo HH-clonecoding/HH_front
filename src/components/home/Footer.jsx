@@ -113,7 +113,7 @@ export default Footer
 const MainCont = styled.div`
   margin: auto;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10rem;
   max-width: 48.5rem;
   width: 100%;
   overflow: cover;
